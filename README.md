@@ -79,7 +79,7 @@
     <li>5/9/2013 - Created initial repository with README and user stories, as per students' assignment for 5/10</li>
 </ul>
 
-<h4>ulcense</h4>
+<h4>License</h4>
 
 <ul>
     <li>Copyright © 2013 Jay McDowell</li>
