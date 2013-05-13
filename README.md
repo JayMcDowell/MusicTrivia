@@ -44,7 +44,11 @@
 </ul>
 
 <ul>
-    <li>The quiz will be 20 questions.  There will be 15 questions that are driven by the user's age that relate mostly to rock and pop music.  There will be one question each from categories including jazz, country, hip-hop, oldies and classical.</li>
+    <li>The game will ask the user to choose a category.  Choices will include 60's Rock & Pop, 70's Rock & Pop, 80's Rock & Pop, New Country, Classic Country, Jazz, Classical and an All Music Category. </li>
+</ul>
+
+<ul>
+    <li>The quiz will be 20 questions.</li>
 </ul>
 
 <ul>

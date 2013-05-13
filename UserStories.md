@@ -2,7 +2,7 @@
 
 <h4>As a music fan 
 In order to appeal to a wide range of users 
-I want to use the user's age to drive the content of the quiz</h4>
+I want to let the user choose the category to drive the content of the quiz</h4>
 
 <ul>
     <li>User runs mq start</li>
@@ -13,7 +13,7 @@ I want to use the user's age to drive the content of the quiz</h4>
     </ul>
 
 <ul>
-    <li>The age will be evaluated and the database of questions will be different for under 20, 21-50 and over 50.</li>
+    <li>The category will determine what database of questions are used</li>
     </ul>
 
 <h4>As a competitive music fan 
@@ -26,18 +26,6 @@ I want to keep a running score of the quiz</h4>
 
 <ul>
     <li>current status is displayed</li>
-    </ul>
-
-<h4>As a music fan 
-In order to make it a broad test of knowledge 
-I want to add a diverse group of questions including different genres</h4>
-
-<ul>
-    <li>There will be one question each from categories including jazz, country, hip-hop, oldies and classical</li>
-    </ul>
-
-<ul>
-    <li>These will be mixed in among the 20 questions.</li>
     </ul>
 
 <h4>As a music fan
