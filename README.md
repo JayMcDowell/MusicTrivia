@@ -1,4 +1,4 @@
-<h1>NSS--Music Trivia-Cul</h1>
+<h1>NSS--Music Trivia-CLI</h1>
 
 <h4>Purpose</h4>
 
