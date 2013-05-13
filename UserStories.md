@@ -1,40 +1,40 @@
 <h1>User Stories for Music Trivia</h1>
 
-<h2>As a music fan 
+<h4>As a music fan 
 In order to appeal to a wide range of users 
-I want to use the user's age to drive the content of the quiz</h2>
+I want to use the user's age to drive the content of the quiz</h4>
 
-<li>User runs mq start</li>
+<ul>User runs mq start</ul>
 
-<li>User is asked for his/her name and age</li>
+<ul>User is asked for his/her name and age</ul>
 
-<li>The age will be evaluated and the database of questions will be different for under 20, 21-50 and over 50.</li>
+<ul>The age will be evaluated and the database of questions will be different for under 20, 21-50 and over 50.</ul>
 
-<h2>As a competitive music fan 
+<h4>As a competitive music fan 
 In order to keep my user engaged 
-I want to keep a running score of the quiz</h2>
+I want to keep a running score of the quiz</h4>
 
-<li>User runs mq score</li>
+<ul>User runs mq score</ul>
 
-<li>current status is displayed</li>
+<ul>current status is displayed</ul>
 
-<h2>As a music fan 
+<h4>As a music fan 
 In order to make it a broad test of knowledge 
-I want to add a diverse group of questions including different genres</h2>
+I want to add a diverse group of questions including different genres</h4>
 
-<li>There will be one question each from categories including jazz, country, hip-hop, oldies and classical</li>
+<ul>There will be one question each from categories including jazz, country, hip-hop, oldies and classical</ul>
 
-<li>These will be mixed in among the 20 questions.</li>
+<ul>These will be mixed in among the 20 questions.</ul>
 
-<h2>As a music fan
+<h4>As a music fan
 In order to make it a learning experience
-I want to show the user the correct answer if the question is missed</h2>
+I want to show the user the correct answer if the question is missed</h4>
 
-<li>The user will be notified that the wrong answer has been given and the correct answer will be displayed.</li>
+<ul>The user will be notified that the wrong answer has been given and the correct answer will be displayed.</ul>
 
-<h2>As a music fan
+<h4>As a music fan
 In order to keep my users coming back
-I want to give praise/shame at the end of each quiz</h2>
-<li>User finishes quiz</li>
+I want to give praise/shame at the end of each quiz</h4>
+<ul>User finishes quiz</ul>
 
-<li>program will return one of five messages depending on total scored</li>
+<ul>program will return one of five messages depending on total scored</ul>

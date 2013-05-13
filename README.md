@@ -1,53 +1,53 @@
-<h1>NSS--Music Trivia-CLI</h1>
+<h1>NSS--Music Trivia-Cul</h1>
 
-<h2>Purpose</h2>
+<h4>Purpose</h4>
 
-<li>This is for the Unit 2 (Ruby) Capstone project for Nashville Software School.</li>
+<ul>This is for the Unit 2 (Ruby) Capstone project for Nashville Software School.</ul>
 
-<li>The contstraints of the project are that they must use standard library Ruby with the exception of being able to use ActiveRecord as an ORM. Future exceptions may be added, but the concept with this capstone is to demonstrate mastery of Ruby itself.</li>
+<ul>The contstraints of the project are that they must use standard ulbrary Ruby with the exception of being able to use ActiveRecord as an ORM. Future exceptions may be added, but the concept with this capstone is to demonstrate mastery of Ruby itself.</ul>
 
-<li>The goal of this project is to create a quiz that will be rewarding to the user.</li>
+<ul>The goal of this project is to create a quiz that will be rewarding to the user.</ul>
 
-<h2>Project Status/To Do</h2>
+<h4>Project Status/To Do</h4>
 
-<li>This project is currently in the planning stages</li>
+<ul>This project is currently in the planning stages</ul>
 
-<h2>Features</h2>
+<h4>Features</h4>
 
-<li>The music trivia quiz will include interaction with the user and some of the questions will be based on the user input.</li>
+<ul>The music trivia quiz will include interaction with the user and some of the questions will be based on the user input.</ul>
 
-<h2>Usage Instructions</h2>
+<h4>Usage Instructions</h4>
 
-<li>Planned usage is as follows:</li>
+<ul>Planned usage is as follows:</ul>
 
-<li>The game will ask for the user's name.</li>
+<ul>The game will ask for the user's name.</ul>
 
-<li>The game will ask for the user's age.</li>
+<ul>The game will ask for the user's age.</ul>
 
-<li>The user will be asked questions based on his/her age.</li>
+<ul>The user will be asked questions based on his/her age.</ul>
 
-<li>The quiz will be 20 questions.  There will be 15 questions that are driven by the user's age that relate mostly to rock and pop music.  There will be one question each from categories including jazz, country, hip-hop, oldies and classical.</li>
+<ul>The quiz will be 20 questions.  There will be 15 questions that are driven by the user's age that relate mostly to rock and pop music.  There will be one question each from categories including jazz, country, hip-hop, oldies and classical.</ul>
 
-<li>I want the user to be able to take the test multiple times and not see many questions twice.  This will require a multitude of questions that are accessed randomly.</li>
+<ul>I want the user to be able to take the test multiple times and not see many questions twice.  This will require a multitude of questions that are accessed randomly.</ul>
 
-<li>The end of the quiz will post a score and give some sort of praise/shame feedback depending on the outcome.</li>
+<ul>The end of the quiz will post a score and give some sort of praise/shame feedback depending on the outcome.</ul>
 
-<h2>Demo</h2>
+<h4>Demo</h4>
 
-<li>To demo the app, you'll have to download it and try it yourself.</li>
+<ul>To demo the app, you'll have to download it and try it yourself.</ul>
 
-<h2>Known bugs</h2>
+<h4>Known bugs</h4>
 
-<li>There certainly will be some.</li>
+<ul>There certainly will be some.</ul>
 
-<h2>Author</h2>
+<h4>Author</h4>
 
-<li>Jay McDowell</li>
+<ul>Jay McDowell</ul>
 
-<h2>Changelog</h2>
+<h4>Changelog</h4>
 
-<li>5/9/2013 - Created initial repository with README and user stories, as per students' assignment for 5/10</li>
+<ul>5/9/2013 - Created initial repository with README and user stories, as per students' assignment for 5/10</ul>
 
-<h2>License</h2>
+<h4>ulcense</h4>
 
-<li>Copyright © 2013 Jay McDowell</li>
+<ul>Copyright © 2013 Jay McDowell</ul>
