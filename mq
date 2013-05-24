@@ -1,31 +1,48 @@
 #!/usr/bin/env ruby
 
 require_relative 'bootstrap_ar'
-database = ENV['FP_ENV'] || 'development'
+database = ENV['MQ_ENV'] || 'development'
 connect_to database
+require './app/models/user'
+attr_accessor :entered_initials
 
 # ARGV = [add, foo]
 command = ARGV[0]
 project_name = ARGV[1] # can be nil
 
 params = { command: command, project: { name: project_name } }
-controller = FuturePerfectController.new(params)
+controller = User_Controller.new(params)
 routes = { "add" => :create, "list" => :index, "remove" => :destroy, "start" => :work }
 
-# This is a router:
-if route = routes[command]
-  controller.send route
-else
-  unless command == "help"
-    puts "FuturePerfect does not (yet?) support the '#{command}' command.\n\n"
-  end
-  puts <<EOS
-Currently supported commands are:
-* futureperfect list
-* futureperfect add <project_name>
-* futureperfect remove <project_name>
-* futureperfect start
-
-See the README for more details
-EOS
+def greeting
+    puts 'Welcome!  Please enter your initials.'
+    entered_initials = gets.chomp.capitalize
 end
+
+
+# def add_initials(initials)
+#     User.create( initials: initials )
+# end
+
+
+
+# This is a router:
+# if route = routes[command]
+#   controller.send route
+# else
+#   unless command == "help"
+#     puts "MQ does not (yet?) support the '#{command}' command.\n\n"
+#   end
+#   puts <<EOS
+# Currently supported commands are:
+# * MQ list
+# * MQ add <user_name>
+# * MQ remove <user_name>
+# * MQ start
+
+# See the README for more details
+# EOS
+# end
+
+User.add_initials(greeting)
+

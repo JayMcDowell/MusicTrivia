@@ -1,8 +1,11 @@
 class User < ActiveRecord::Base
-  validates_uniqueness_of :name, message: "must be unique"
-  default_scope order("last_worked_at ASC")
 
-  def minutes_to_work
-    ENV['FP_ENV'] == 'test' ? 0 : 30
+  def self.add_initials(entered_initials)
+    User.create( initials: entered_initials )
+    if User.where( entered_initials:).exists?
+        puts "Welcome back!  Choose a new quiz.  You have the choice of 60's or 90's"
+    else puts "Please choose a quiz.  60s or 90s?"
+    end
   end
 end
+

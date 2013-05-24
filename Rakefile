@@ -1,13 +1,19 @@
 #!/usr/bin/env ruby
 # -*- ruby -*-
 
-require_relative 'bootstrap_ar'
+require './bootstrap_ar'
 require 'yaml'
+require 'rake/testtask'
+require 'active_record'
 
 require 'rake/testtask'
 Rake::TestTask.new( test: "db:test:prepare") do |t|
-  t.pattern = "test/**/test_*.rb"
+  t.pattern = "test/test_*.rb"
 end
+# Rake::TestTask.new do |t|
+#  t.libs << 'test'
+# end
+
 
 desc "Run tests"
 task :default => :test
