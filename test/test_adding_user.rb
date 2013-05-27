@@ -1,6 +1,6 @@
 require_relative 'test_helper'
 
-class TestAddingQuestion < MiniTest::Unit::TestCase
+class TestAddingUser < MiniTest::Unit::TestCase
    include DatabaseCleaner
 
   def test_takes_user_arguments_and_uses_them

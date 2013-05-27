@@ -1,47 +1,16 @@
-class User_Controller
-  # include Formatter
+class UserController
 
-  def initialize params
-    @params = params
-  end
+  # def initialize params
+  #   @params = params
+  # end
 
-  def index
-    users = User.all
-    users.each_with_index do |user, i|
-      puts "#{i+1}. #{user.name}"
-    end
-  end
+  # def create
+  #   if user.save
+  #     # choose_quiz
+  #   end
+  # end
 
-  def create
-    user = User.new(params[:initials])
-    if user.save
-      puts "Success!"
-    else
-      puts "Failure :( #{user.errors.full_messages.join(", ")}"
-    end
-  end
-
-  def destroy
-    matching_users = User.where(initials: params[:initials]).all
-    matching_users.each do |user|
-      user.destroy
-    end
-  end
-
-  def work
-    user = User.first
-    if user
-      user.update_attribute(:last_worked_at, Time.now)
-      add_line colorize("#{user.name}", GREEN)
-      Countdown.for(user.minutes_to_work)
-    else
-      puts "You must enter a project before you can start working"
-    end
-  end
-
-  private
-
-  def params
-    @params
-  end
+  # def params
+  #   @params
+  # end
 end

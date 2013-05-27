@@ -4,45 +4,168 @@ require_relative 'bootstrap_ar'
 database = ENV['MQ_ENV'] || 'development'
 connect_to database
 require './app/models/user'
-attr_accessor :entered_initials
 
 # ARGV = [add, foo]
 command = ARGV[0]
-project_name = ARGV[1] # can be nil
+entered_initials = ARGV[1] # can be nil
 
-params = { command: command, project: { name: project_name } }
-controller = User_Controller.new(params)
-routes = { "add" => :create, "list" => :index, "remove" => :destroy, "start" => :work }
-
-def greeting
+  def get_initials
     puts 'Welcome!  Please enter your initials.'
-    entered_initials = gets.chomp.capitalize
-end
+    @user = gets.chomp.capitalize
+    if User.where( initials: @user ).exists?
+       puts "Welcome back!  Choose a new quiz."
+       choose_quiz
+    else
+    params = { initials: @user }
+    User.create(params)
+    puts "Choose a new quiz."
+    choose_quiz
+    end
+  end
 
+  def choose_quiz
+    puts "Great!  You have the choice of 60s or 90s."
+    @quiz_choice = gets.chomp
+    ready
+  end
 
-# def add_initials(initials)
-#     User.create( initials: initials )
-# end
+  def ready
+    puts "Are you ready to start?"
+    puts "Press enter to continue."
+    gets
+    quiz
+  end
 
+  def quiz
+    if @quiz_choice == "60s"
+        i=0
+        @score = 0
+      questions= Question.where(quiz_id: "60s")
+        questions.all.each do |question|
+        puts "\n" + question.query
+        puts "a " + question.a
+        puts "b " + question.b
+        puts "c " + question.c
+        puts "d " + question.d
+        puts "Please choose an answer."
+        answer = gets.chomp.downcase
+          if answer == "a"
+            answer = question.a
+          elsif answer == "b"
+            answer = question.b
+          elsif answer == "c"
+            answer = question.c
+          elsif answer == "d"
+            answer = question.d
+          else puts "That is not a valid answer, Please try again."
+          #ask Travis about this.
+            answer = gets.chomp.downcase
+          end
+            if answer == "a"
+              answer = question.a
+            elsif answer == "b"
+              answer = question.b
+            elsif answer == "c"
+              answer = question.c
+            elsif answer == "d"
+              answer = question.d
+            end
 
+       # Answer.create(question_id: question.id, user_id: @user.id, given_answer: answer, correct: question.correct_answer)
+            if answer == question.correct_answer
+              puts "\nThat's correct."
+              @score = @score + 5
+              puts "\nYour score is #{@score}"
+            else puts "\nThat's wrong.  The correct answer is #{question.correct_answer}"
+              puts "\nYour score is #{@score}"
+            end
+            i += 1
+            if i == 20
+              again
+            else
+             terminate
+            end
+         end
+    else
+      @quiz_choice == "90s"
+        i=0
+        @score = 0
+      questions= Question.where(quiz_id: "90s")
+        questions.all.each do |question|
+        puts "\n" + question.query
+        puts "a " + question.a
+        puts "b " + question.b
+        puts "c " + question.c
+        puts "d " + question.d
+        puts "Please choose an answer."
+        answer = gets.chomp.downcase
+          if answer == "a"
+            answer = question.a
+          elsif answer == "b"
+            answer = question.b
+          elsif answer == "c"
+            answer = question.c
+          elsif answer == "d"
+            answer = question.d
+          else puts "That is not a valid answer, Please try again."
+          #ask Travis about this.
+            answer = gets.chomp.downcase
+          end
+            if answer == "a"
+              answer = question.a
+            elsif answer == "b"
+              answer = question.b
+            elsif answer == "c"
+              answer = question.c
+            elsif answer == "d"
+              answer = question.d
+            end
 
-# This is a router:
-# if route = routes[command]
-#   controller.send route
-# else
-#   unless command == "help"
-#     puts "MQ does not (yet?) support the '#{command}' command.\n\n"
-#   end
-#   puts <<EOS
-# Currently supported commands are:
-# * MQ list
-# * MQ add <user_name>
-# * MQ remove <user_name>
-# * MQ start
+       # Answer.create(question_id: question.id, user_id: @user.id, given_answer: answer, correct: question.correct_answer)
+            if answer == question.correct_answer
+              puts "\nThat's correct."
+              @score = @score + 5
+              puts "\nYour score is #{@score}"
+            else puts "\nThat's wrong.  The correct answer is #{question.correct_answer}"
+              puts "\nYour score is #{@score}"
+            end
+            i += 1
+            if i == 20
+              again
+            else
+             terminate
+            end
+         end
 
-# See the README for more details
-# EOS
-# end
+    end
+  end
 
-User.add_initials(greeting)
+  def again
+    puts "out of a possible 100"
+      if @score >99
+        puts "\n You rock!  You didn't miss a beat."
+      elsif @score > 89
+        puts "\n Very nice, you know your music trivia."
+      elsif @score > 69
+        puts "\n Good job.  You know more than the average 'Joe'."
+      elsif @score > 49
+        puts "\n Keep listenin', you've got some catching up to do."
+      else
+        puts "\n Either you are a teenager or you weren't paying attention."
+
+      end
+
+     puts"\nWould you like to play again?"
+     again = gets.chomp.downcase
+      if again == "y"
+        choose_quiz
+      else
+      terminate
+      end
+  end
+
+  def terminate
+
+  end
+get_initials
 

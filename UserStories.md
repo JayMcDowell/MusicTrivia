@@ -9,7 +9,7 @@ I want to let the user choose the category to drive the content of the quiz</h4>
 </ul>
 
 <ul>
-    <li>User is asked for his/her name and age</li>
+    <li>User is asked for his/her initials</li>
     </ul>
 
 <ul>
@@ -20,9 +20,6 @@ I want to let the user choose the category to drive the content of the quiz</h4>
 In order to keep my user engaged 
 I want to keep a running score of the quiz</h4>
 
-<ul>
-    <li>User runs mq score</li>
-    </ul>
 
 <ul>
     <li>current status is displayed</li>
