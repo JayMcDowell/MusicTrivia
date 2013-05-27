@@ -1,0 +1,50 @@
+require_relative 'bootstrap_ar'
+connect_to 'development'
+
+question_list = [
+  [ 'Country', 'Who married movie producer John Leventhal in 1995?', 'Dolly Parton', 'Loretta Lynn', 'Rosanne Cash', 'Tammy Wynette', 'Rosanne Cash' ],
+  [ 'Country', 'What Australian country singer appeared on "The Facts Of Life"?', 'Reba McEntire', 'Sherie Austin', 'Amanda McCAdams', 'Lynn Anderson', 'Sherie Austin' ],
+  [ 'Country', 'Who originally recorded Garth Brooks hit "The Thunder Rolls"?', 'Tanya Tucker', 'Reba McEntire', 'Trisha Yearwood', 'Tammy Wynette', 'Tanya Tucker' ],
+  [ 'Country',
+  [ 'Country',
+  [ 'Country',
+  [ 'Country',
+  [ 'Country',
+  [ 'Country',
+  [ 'Country',
+  [ 'Country',
+  [ 'Country',
+  [ 'Country',
+  [ 'Country',
+  [ 'Country',
+  [ 'Country',
+  [ 'Country',
+  [ 'Country',
+  [ 'Country',
+  [ 'Country',
+  [ 'Country',
+  [ 'Country',
+  [ 'Country',
+  [ 'Country',
+  [ 'Country',
+  [ 'Country',
+  [ 'Country',
+  [ 'Country',
+  [ 'Country',
+  [ 'Country',
+  [ 'Country',
+  [ 'Country',
+  [ 'Country',
+  [ 'Country',
+  [ 'Country',
+  [ 'Country',
+  [ 'Country',
+  [ 'Country',
+  [ 'Country',
+  [ 'Country',
+  [ 'Country',
+
+]
+question_list.each do |quiz_id, query, a, b, c, d, correct_answer|
+  Question.create( quiz_id: quiz_id, query: query, a: a, b: b, c: c, d: d, correct_answer: correct_answer )
+end

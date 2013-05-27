@@ -3,8 +3,7 @@ class CreateAnswers < ActiveRecord::Migration
     create_table :answers do |t|
       t.string :question_id
       t.string :user_id
-      t.string :given_answer
-      t.string :correct
+      t.boolean :correct
     end
   end
 end

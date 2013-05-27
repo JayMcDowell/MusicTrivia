@@ -14,10 +14,9 @@
 ActiveRecord::Schema.define(:version => 20130520181500) do
 
   create_table "answers", :force => true do |t|
-    t.string "question_id"
-    t.string "user_id"
-    t.string "given_answer"
-    t.string "correct"
+    t.string  "question_id"
+    t.string  "user_id"
+    t.boolean "correct"
   end
 
   create_table "questions", :force => true do |t|

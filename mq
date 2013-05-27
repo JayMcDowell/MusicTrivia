@@ -5,143 +5,96 @@ database = ENV['MQ_ENV'] || 'development'
 connect_to database
 require './app/models/user'
 
+
 # ARGV = [add, foo]
 command = ARGV[0]
 entered_initials = ARGV[1] # can be nil
 
   def get_initials
     puts 'Welcome!  Please enter your initials.'
-    @user = gets.chomp.capitalize
-    if User.where( initials: @user ).exists?
-       puts "Welcome back!  Choose a new quiz."
-       choose_quiz
+    print "> "
+    @num_questions = 20
+    initials = gets.chomp.capitalize
+    @user = User.where(initials: initials).first
+    if @user.present?
+      puts "\nWelcome back!  Choose a new quiz."
+      choose_quiz
     else
-    params = { initials: @user }
-    User.create(params)
-    puts "Choose a new quiz."
-    choose_quiz
+      params = { initials: initials }
+      @user = User.create(params)
+      puts "\nChoose a new quiz."
+      choose_quiz
     end
   end
 
   def choose_quiz
     puts "Great!  You have the choice of 60s or 90s."
+    print "> "
     @quiz_choice = gets.chomp
     ready
   end
 
   def ready
-    puts "Are you ready to start?"
-    puts "Press enter to continue."
+    puts "\nAre you ready to start?"
+    print "Press enter to continue."
     gets
     quiz
   end
 
   def quiz
-    if @quiz_choice == "60s"
-        i=0
-        @score = 0
-      questions= Question.where(quiz_id: "60s")
-        questions.all.each do |question|
-        puts "\n" + question.query
-        puts "a " + question.a
-        puts "b " + question.b
-        puts "c " + question.c
-        puts "d " + question.d
-        puts "Please choose an answer."
-        answer = gets.chomp.downcase
-          if answer == "a"
-            answer = question.a
-          elsif answer == "b"
-            answer = question.b
-          elsif answer == "c"
-            answer = question.c
-          elsif answer == "d"
-            answer = question.d
-          else puts "That is not a valid answer, Please try again."
-          #ask Travis about this.
-            answer = gets.chomp.downcase
+    i=0
+    @score = 0
+    questions= Question.where(quiz_id: @quiz_choice).order("Random()").limit(@num_questions)
+    questions.all.each do |question|
+      puts "\n" + question.query
+      puts "a " + question.a
+      puts "b " + question.b
+      puts "c " + question.c
+      puts "d " + question.d
+      puts "Please choose an answer."
+      print "> "
+      answer = question.send(gets.chomp.downcase.to_sym)
+      correct_answer = false
+      if answer == question.correct_answer
+        puts "\nThat's correct."
+        @score = @score + 5
+        puts "\nYour score is #{@score} out of a possible #{(i+1) * 5}"
+        correct_answer = true
+        user_correct_answers = Answer.where(question_id: question.id, correct: true).count
+        user_answers = Answer.where(question_id: question.id).count
+        if user_answers > 0
+          if user_correct_answers > 0
+            percentage = user_correct_answers.to_f / user_answers.to_f
+            puts "#{(percentage * 100).to_i}% of users got this question right."
+          else
+            puts "No previous user got this question right"
           end
-            if answer == "a"
-              answer = question.a
-            elsif answer == "b"
-              answer = question.b
-            elsif answer == "c"
-              answer = question.c
-            elsif answer == "d"
-              answer = question.d
-            end
-
-       # Answer.create(question_id: question.id, user_id: @user.id, given_answer: answer, correct: question.correct_answer)
-            if answer == question.correct_answer
-              puts "\nThat's correct."
-              @score = @score + 5
-              puts "\nYour score is #{@score}"
-            else puts "\nThat's wrong.  The correct answer is #{question.correct_answer}"
-              puts "\nYour score is #{@score}"
-            end
-            i += 1
-            if i == 20
-              again
-            else
-             terminate
-            end
-         end
-    else
-      @quiz_choice == "90s"
-        i=0
-        @score = 0
-      questions= Question.where(quiz_id: "90s")
-        questions.all.each do |question|
-        puts "\n" + question.query
-        puts "a " + question.a
-        puts "b " + question.b
-        puts "c " + question.c
-        puts "d " + question.d
-        puts "Please choose an answer."
-        answer = gets.chomp.downcase
-          if answer == "a"
-            answer = question.a
-          elsif answer == "b"
-            answer = question.b
-          elsif answer == "c"
-            answer = question.c
-          elsif answer == "d"
-            answer = question.d
-          else puts "That is not a valid answer, Please try again."
-          #ask Travis about this.
-            answer = gets.chomp.downcase
+        end
+      else
+        puts "\nThat's wrong.  The correct answer is #{question.correct_answer}"
+        puts "\nYour score is #{@score} out of a possible #{(i+1) * 5}"
+        user_incorrect_answers = Answer.where(question_id: question.id, correct: false).count
+        user_answers = Answer.where(question_id: question.id).count
+        if user_answers > 0
+          if user_incorrect_answers > 0
+            percentage = user_incorrect_answers.to_f / user_answers.to_f
+            puts "#{(percentage * 100).to_i}% of users got this question wrong."
+          else
+            puts "No previous user got this question wrong....loser"
           end
-            if answer == "a"
-              answer = question.a
-            elsif answer == "b"
-              answer = question.b
-            elsif answer == "c"
-              answer = question.c
-            elsif answer == "d"
-              answer = question.d
-            end
+        end
+      end
 
-       # Answer.create(question_id: question.id, user_id: @user.id, given_answer: answer, correct: question.correct_answer)
-            if answer == question.correct_answer
-              puts "\nThat's correct."
-              @score = @score + 5
-              puts "\nYour score is #{@score}"
-            else puts "\nThat's wrong.  The correct answer is #{question.correct_answer}"
-              puts "\nYour score is #{@score}"
-            end
-            i += 1
-            if i == 20
-              again
-            else
-             terminate
-            end
-         end
-
+      Answer.create(question_id: question.id, user_id: @user.id, correct: correct_answer)
+      i += 1
+      if i == @num_questions
+        again
+      end
     end
   end
 
   def again
-    puts "out of a possible 100"
+    puts "\n\nYour final score is #{@score} out of a possible #{@num_questions * 5}"
       if @score >99
         puts "\n You rock!  You didn't miss a beat."
       elsif @score > 89
@@ -155,8 +108,9 @@ entered_initials = ARGV[1] # can be nil
 
       end
 
-     puts"\nWould you like to play again?"
-     again = gets.chomp.downcase
+    puts"\nWould you like to play again? (y/n)"
+    print "> "
+    again = gets.chomp.downcase
       if again == "y"
         choose_quiz
       else
@@ -165,7 +119,7 @@ entered_initials = ARGV[1] # can be nil
   end
 
   def terminate
-
+    exit
   end
 get_initials
 
