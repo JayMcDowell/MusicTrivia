@@ -28,9 +28,9 @@ entered_initials = ARGV[1] # can be nil
   end
 
   def choose_quiz
-    puts "Great!  You have the choice of 60s or 90s."
+    puts "\nYou have the choice of 60s, 90s or Country."
     print "> "
-    @quiz_choice = gets.chomp
+    @quiz_choice = gets.chomp.capitalize
     ready
   end
 

@@ -7,7 +7,7 @@
 </ul>
 
 <ul>
-    The contstraints of the project are that they must use standard ulbrary Ruby with the exception of being able to use ActiveRecord as an ORM. Future exceptions may be added, but the concept with this capstone is to demonstrate mastery of Ruby itself.</ul>
+    The contstraints of the project are that they must use standard library Ruby with the exception of being able to use ActiveRecord as an ORM. Future exceptions may be added, but the concept with this capstone is to demonstrate mastery of Ruby itself.</ul>
 
 <ul>
     <li>The goal of this project is to create a quiz that will be rewarding to the user.</li>
@@ -16,7 +16,7 @@
 <h4>Project Status/To Do</h4>
 
 <ul>
-    <li>This project is currently in the planning stages</li>
+    <li>This project is currently in the final stages</li>
 </ul>
 
 <h4>Features</h4>
@@ -32,19 +32,11 @@
 </ul>
 
 <ul>
-    <li>The game will ask for the user's name.</li>
+    <li>The game will ask for the user's initials.</li>
 </ul>
 
 <ul>
-    <li>The game will ask for the user's age.</li>
-</ul>
-
-<ul>
-    <li>The user will be asked questions based on his/her age.</li>
-</ul>
-
-<ul>
-    <li>The game will ask the user to choose a category.  Choices will include 60's Rock & Pop, 70's Rock & Pop, 80's Rock & Pop, New Country, Classic Country, Jazz, Classical and an All Music Category. </li>
+    <li>The game will ask the user to choose a category.  Choices will include 60's Rock & Pop, 90's and Country. </li>
 </ul>
 
 <ul>
