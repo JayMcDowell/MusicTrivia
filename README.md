@@ -60,7 +60,7 @@
 <h4>Known bugs</h4>
 
 <ul>
-    <li>There certainly will be some.</li>
+    <li>There certainly are some, but nothing major.</li>
 </ul>
 
 <h4>Author</h4>
