@@ -15,7 +15,7 @@
 
 <h4>Project Status/To Do</h4>
 
-(https://travis-ci.org/JayMcDowell/MusicTrivia.png)](https://travis-ci.org/JayMcDowell/MusicTrivia)
+[![Build Status](https://travis-ci.org/JayMcDowell/MusicTrivia.png)](https://travis-ci.org/JayMcDowell/MusicTrivia)
 <ul>
     <li>This project is currently in the final stages</li>
 </ul>
