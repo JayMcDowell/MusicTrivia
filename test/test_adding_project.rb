@@ -1,4 +1,4 @@
-require 'test_helper.rb'
+require_relative 'test_helper.rb'
 
 class TestAddingQuestion < Test::Unit::TestCase
   def test_takes_arguments_and_saves_them
