@@ -1,4 +1,4 @@
-require_relative 'test_helper'
+require_relative 'test_helper.rb'
 
 class TestAddingQuestion < MiniTest::Unit::TestCase
    include DatabaseCleaner
