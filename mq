@@ -28,13 +28,31 @@ entered_initials = ARGV[1] # can be nil
   end
 
   def choose_quiz
-    puts "\nYou have the choice of 60s, 90s or Country."
+    puts "\nYou have the choice of Sixties, Nineties or Country."
+    puts "a Sixies"
+    puts "b Nineties"
+    puts "c Country"
     print "> "
-    @quiz_choice = gets.chomp.capitalize
+    @quiz_select = gets.chomp.capitalize
+      if @quiz_select == "A"
+        @quiz_choice = "Sixties"
+      elsif
+        @quiz_select == "B"
+        @quiz_choice = "Nineties"
+      elsif
+        @quiz_select == "C"
+        @quiz_choice = "Country"
+      else
+        puts "That choice is not valid, please select again."
+        choose_quiz
+      end
     ready
   end
 
   def ready
+    puts "\nYou chose " + @quiz_choice + "."
+    puts "\nEach question is worth 5 points."
+    puts "There are 20 questions in each quiz."
     puts "\nAre you ready to start?"
     print "Press enter to continue."
     gets

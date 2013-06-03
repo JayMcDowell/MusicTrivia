@@ -14,6 +14,7 @@
 </ul>
 
 <h4>Project Status/To Do</h4>
+<a href="https://codeclimate.com/github/JayMcDowell/MusicTrivia"><img src="https://codeclimate.com/github/JayMcDowell/MusicTrivia.png" /></a>
 
 [![Build Status](https://travis-ci.org/JayMcDowell/MusicTrivia.png)](https://travis-ci.org/JayMcDowell/MusicTrivia)
 <ul>

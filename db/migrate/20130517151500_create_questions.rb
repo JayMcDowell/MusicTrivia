@@ -2,6 +2,7 @@ class CreateQuestions < ActiveRecord::Migration
   def change
     create_table :questions do |t|
       t.string :quiz_id
+      t.string :quiz_level
       t.string :query
       t.string :a
       t.string :b
